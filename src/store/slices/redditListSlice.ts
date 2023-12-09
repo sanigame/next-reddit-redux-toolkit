@@ -6,11 +6,12 @@ const REDDIT_API = 'https://www.reddit.com'
 const SUBREDDIT = 'all'
 
 export const fetchRedditList = createAsyncThunk(
-  "redditList/fetchRedditList",
+  'redditList/fetchRedditList',
   async () => {
     const response = await axios.get(`${REDDIT_API}/r/${SUBREDDIT}/hot.json`)
     return response.data.data.children
-})
+  },
+)
 
 const initialState = {
   list: [],
@@ -19,7 +20,7 @@ const initialState = {
 };
 
 const redditListSlice = createSlice({
-  name: "redditList",
+  name: 'redditList',
   initialState,
   reducers: {},
   extraReducers: builder => builder

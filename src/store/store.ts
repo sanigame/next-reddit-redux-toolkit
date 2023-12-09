@@ -8,9 +8,11 @@ import {
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 import redditListReducer from './slices/redditListSlice'
+import redditDetailReducer from './slices/redditDetailSlice'
 
 const combinedReducer = combineReducers({
   redditList: redditListReducer,
+  redditDetail: redditDetailReducer,
 });
 
 const reducer = (state: ReturnType<typeof combinedReducer>, action: AnyAction) => {
