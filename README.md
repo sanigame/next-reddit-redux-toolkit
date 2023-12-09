@@ -18,17 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## With Docker
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-docker nextjs-docker
-# or
-yarn create next-app --example with-docker nextjs-docker
-# or
-pnpm create next-app --example with-docker nextjs-docker
-```
 
 ## Using Docker
 
