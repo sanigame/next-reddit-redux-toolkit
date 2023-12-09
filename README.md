@@ -18,7 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-
 ## Using Docker
 
 1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.

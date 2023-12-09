@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 const REDDIT_API = 'https://www.reddit.com'
 
@@ -19,26 +19,27 @@ const initialState = {
   },
   isFetching: false,
   error: false,
-};
+}
 
 const redditDetailSlice = createSlice({
   name: 'redditDetail',
   initialState,
   reducers: {},
-  extraReducers: builder => builder
-    .addCase(fetchRedditDetail.pending, (state) => {
-      state.isFetching = true
-      state.error = false
-    })
-    .addCase(fetchRedditDetail.fulfilled, (state, action) => {
-      state.isFetching = false
-      state.detail.title = action.payload.title
-      state.detail.subreddit = action.payload.subreddit
-    })
-    .addCase(fetchRedditDetail.rejected, (state) => {
-      state.isFetching = false
-      state.error = true
-    })     
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchRedditDetail.pending, (state) => {
+        state.isFetching = true
+        state.error = false
+      })
+      .addCase(fetchRedditDetail.fulfilled, (state, action) => {
+        state.isFetching = false
+        state.detail.title = action.payload.title
+        state.detail.subreddit = action.payload.subreddit
+      })
+      .addCase(fetchRedditDetail.rejected, (state) => {
+        state.isFetching = false
+        state.error = true
+      }),
 })
 
 export default redditDetailSlice.reducer
