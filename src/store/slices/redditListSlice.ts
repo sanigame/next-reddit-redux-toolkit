@@ -3,12 +3,16 @@ import axios from 'axios'
 import { RootState } from '../store'
 
 const REDDIT_API = 'https://www.reddit.com'
-const SUBREDDIT = 'all'
+// const SUBREDDIT = 'all'
 
-export const fetchRedditList = createAsyncThunk('redditList/fetchRedditList', async () => {
-  const response = await axios.get(`${REDDIT_API}/r/${SUBREDDIT}/hot.json`)
-  return response.data.data.children
-})
+export const fetchRedditList = createAsyncThunk(
+  'redditList/fetchRedditList',
+  async (userData: { subreddit: string }) => {
+    const { subreddit } = userData
+    const response = await axios.get(`${REDDIT_API}/r/${subreddit}/hot.json`)
+    return response.data.data.children
+  },
+)
 
 const initialState = {
   list: [],
@@ -23,6 +27,7 @@ const redditListSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(fetchRedditList.pending, (state) => {
+        state.list = []
         state.isFetching = true
         state.error = false
       })

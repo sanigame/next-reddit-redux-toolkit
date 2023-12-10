@@ -1,21 +1,30 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { fetchRedditList } from '../store/slices/redditListSlice'
 
+const SUBREDDIT_LIST = ['all', 'pokemon', 'reactjs', 'apple']
+
 export default function Home() {
   const initialized = useRef(false)
   const dispatch = useAppDispatch()
   const { list, isFetching, error } = useAppSelector((state) => state.redditList)
+  const [subredditSelected, setSubredditSelected] = useState('all')
 
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true
-      dispatch(fetchRedditList())
+      dispatch(fetchRedditList({ subreddit: subredditSelected }))
     }
     return () => {}
-  }, [dispatch])
+  }, [dispatch, subredditSelected])
+
+  const onSelectSubReddit = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault()
+    initialized.current = false
+    setSubredditSelected(event.target.value)
+  }
 
   return (
     <>
@@ -26,6 +35,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <div>
+          <select id="subreddit" value={subredditSelected} onChange={onSelectSubReddit}>
+            {SUBREDDIT_LIST.map((subreddit, i) => (
+              <option key={i} value={subreddit}>
+                {subreddit}
+              </option>
+            ))}
+          </select>
+        </div>
         {isFetching ? <p>loading</p> : null}
         {list &&
           list.map((topic: any, i: number) => (
