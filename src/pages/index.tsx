@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../hooks/store'
 import { fetchRedditList } from '../store/slices/redditListSlice'
 
 const SUBREDDIT_LIST = ['all', 'pokemon', 'reactjs', 'apple']
