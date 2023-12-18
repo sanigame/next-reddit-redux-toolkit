@@ -21,7 +21,21 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 ## Using Docker
 
 1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-1. Build your container: `docker build -t nextjs-docker .`.
-1. Run your container: `docker run -p 3000:3000 nextjs-docker`.
+1. Build your container: `docker build -t next-reddit-redux-toolkit .`.
+1. Run your container: `docker run -p 3000:3000 next-reddit-redux-toolkit`.
 
 You can view your images created with `docker images`.
+
+## Push image to hub.docker.com
+
+1. Tag image: `docker tag next-reddit-redux-toolkit sanigame/next-reddit-redux-toolkit:latest`.
+1. Push image: `docker push sanigame/next-reddit-redux-toolkit:latest`
+
+## Using Kubernetes
+
+1. Apply deployment `kubectl apply -f deployment.yaml`.
+1. Get deployment `kubectl get deployment`.
+1. Descrive detail `kubectl describe deployment next-reddit`.
+1. Get pods `kubectl get pods`
+
+For delete pod `kubectl delete deployment next-reddit`

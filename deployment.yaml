@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: next-reddit
+  labels:
+    app: next-reddit
+spec:
+  selector:
+    matchLabels:
+      app: next-reddit
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: next-reddit
+        tier: web
+    spec:
+      containers:
+        - name: next-reddit-app
+          image: sanigame/next-reddit-redux-toolkit
+          ports:
+            - containerPort: 3000
