@@ -11,12 +11,14 @@
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    // "react",
+    "react",
     "react-refresh",
     "import",
-    "eslint-plugin-no-inline-styles"
+    "eslint-plugin-no-inline-styles",
+    "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
     "react/react-in-jsx-scope": "off",
     // "react/jsx-uses-react": "off",
     "prettier/prettier": [

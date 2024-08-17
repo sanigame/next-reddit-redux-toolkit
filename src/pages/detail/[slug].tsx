@@ -1,8 +1,10 @@
-import React from 'react'
 import { ParsedUrlQuery } from 'querystring'
-import { wrapper } from '../../store/store'
-import { fetchRedditDetail } from '../../store/slices/redditDetailSlice'
+
+import React from 'react'
+
 import RedditDetail from '../../components/redditDetail/RedditDetail'
+import { fetchRedditDetail } from '../../store/slices/redditDetailSlice'
+import { wrapper } from '../../store/store'
 
 interface Params extends ParsedUrlQuery {
   slug: string

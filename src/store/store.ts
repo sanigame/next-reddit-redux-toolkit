@@ -1,8 +1,8 @@
 import { Action, AnyAction, combineReducers, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import { createWrapper, HYDRATE } from 'next-redux-wrapper'
 
-import redditListReducer from './slices/redditListSlice'
 import redditDetailReducer from './slices/redditDetailSlice'
+import redditListReducer from './slices/redditListSlice'
 
 const combinedReducer = combineReducers({
   redditList: redditListReducer,

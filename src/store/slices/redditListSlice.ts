@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
+
 import { RootState } from '../store'
 
 const REDDIT_API = 'https://www.reddit.com'

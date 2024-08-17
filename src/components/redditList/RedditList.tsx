@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
+
 import Head from 'next/head'
 import Link from 'next/link'
+
 import { useAppDispatch, useAppSelector } from '../../hooks/store'
 import { fetchRedditList } from '../../store/slices/redditListSlice'
 
